@@ -46,10 +46,21 @@
       /* optional: subtle shadow so it pops over the bar */
       filter: drop-shadow(0 2px 0 rgba(0,0,0,.25));
     }
-    .tagline{
-      color:#fff; font-weight:800; font-size:12px;
-      background:rgba(0,0,0,.25); padding:6px 10px; border-radius:6px;
-    }
+    .tagline {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  background: rgba(0,0,0,.25);
+  padding: 6px 14px;
+  border-radius: 6px;
+
+  z-index: 5;
+}
 
     /* Hero */
     .hero{padding:56px 0 16px; text-align:center}
