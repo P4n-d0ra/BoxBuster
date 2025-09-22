@@ -12,19 +12,51 @@
       --bg:#021b46; --card:#0b2a63; --text:#f8fafc; --muted:#dbe6ff;
     }
     *{box-sizing:border-box}
-    body{margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:linear-gradient(180deg,#021b46,#05245a 60%,#041a43)}
+    body{
+      margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,#021b46,#05245a 60%,#041a43)
+    }
     a{color:var(--bb-yellow); text-decoration:none}
     .container{max-width:1040px; margin:0 auto; padding:24px}
 
-    /* Header */
-    header{background:var(--bb-blue); border-bottom:6px solid var(--bb-yellow)}
-    .nav{max-width:1040px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between}
-    .brand img{height:50px}
-    .tagline{color:#fff; font-weight:800; font-size:12px; background:rgba(0,0,0,.25); padding:6px 10px; border-radius:6px}
+    /* Header (logo overlays the yellow bar) */
+    header{
+      background:var(--bb-blue);
+      border-bottom:6px solid var(--bb-yellow);
+      position:relative;
+      overflow:visible;
+    }
+    .nav{
+      max-width:1040px; margin:0 auto;
+      /* extra left padding so the big logo doesn’t cover the tagline */
+      padding:14px 24px 14px 170px;
+      display:flex; align-items:center; justify-content:space-between;
+      position:relative; min-height:90px;
+    }
+    .brand{
+      position:absolute; left:24px; top:50%; transform:translateY(-50%);
+      z-index:10; /* sits above the yellow border */
+      line-height:0;
+    }
+    .brand img{
+      height:100px; /* big logo */
+      display:block;
+      pointer-events:none;  /* logo is decorative */
+      /* optional: subtle shadow so it pops over the bar */
+      filter: drop-shadow(0 2px 0 rgba(0,0,0,.25));
+    }
+    .tagline{
+      color:#fff; font-weight:800; font-size:12px;
+      background:rgba(0,0,0,.25); padding:6px 10px; border-radius:6px;
+    }
 
     /* Hero */
     .hero{padding:56px 0 16px; text-align:center}
-    h1{font-family:'Alfa Slab One',serif; font-size:46px; line-height:1.05; margin:0 0 10px; color:var(--bb-yellow); text-shadow:3px 3px 0 var(--bb-blue-dark)}
+    h1{
+      font-family:'Alfa Slab One',serif; font-size:46px; line-height:1.05;
+      margin:0 0 10px; color:var(--bb-yellow); text-shadow:3px 3px 0 var(--bb-blue-dark)
+    }
     .lead{color:var(--muted); font-size:18px; margin:0 auto 18px; max-width:780px}
 
     /* Buttons */
@@ -51,13 +83,20 @@
     /* Footer */
     footer{background:var(--bb-blue-dark); color:var(--bb-yellow); text-align:center; padding:18px; font-family:'Alfa Slab One',serif}
 
-    @media (max-width:720px){ h1{font-size:36px} }
+    @media (max-width:720px){
+      h1{font-size:36px}
+      .brand img{height:70px}
+      .nav{padding-left:130px; min-height:72px}
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="nav">
-      <div class="brand"> <img src="assets/Logo.png" alt="BoxBuster Logo">
+      <div class="brand">
+        <!-- Use your transparent PNG here; keep exact filename/case -->
+        <img src="assets/Logo.png" alt="BoxBuster Logo">
+      </div>
       <div class="tagline">The world’s FREE rip & ship — funded 100% by creator rewards</div>
     </div>
   </header>
@@ -93,9 +132,9 @@
         <div class="card">The Grail (1st Ed Base) — $350,000+</div>
       </div>
       <div class="goal-images">
-<img src="assets/box1.png" alt="Legendary Collection">
-<img src="assets/box2.png" alt="Mid-Era: Skyridge Booster Box">
-<img src="assets/box3.png" alt="The Grail: 1st Edition Base Set Box">
+        <img src="assets/box1.png" alt="Legendary Collection">
+        <img src="assets/box2.png" alt="Mid-Era: Skyridge Booster Box">
+        <img src="assets/box3.png" alt="The Grail: 1st Edition Base Set Box">
       </div>
     </section>
 
@@ -105,7 +144,6 @@
       <div class="grid">
         <div class="card">Contract: <a href="#">paste</a></div>
         <div class="card">Treasury: <a href="#">paste</a></div>
-       
       </div>
     </section>
 
