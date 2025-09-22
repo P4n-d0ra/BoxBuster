@@ -20,7 +20,7 @@
     a{color:var(--bb-yellow); text-decoration:none}
     .container{max-width:1040px; margin:0 auto; padding:24px}
 
-    /* Header (logo overlays the yellow bar) */
+    /* Header with centered logo */
     header{
       background:var(--bb-blue);
       border-bottom:6px solid var(--bb-yellow);
@@ -29,26 +29,27 @@
     }
     .nav{
       max-width:1040px; margin:0 auto;
-      /* extra left padding so the big logo doesn’t cover the tagline */
-      padding:14px 24px 14px 170px;
-      display:flex; align-items:center; justify-content:space-between;
-      position:relative; min-height:90px;
+      padding:14px 24px;
+      display:flex; align-items:center; justify-content:center;
+      min-height:220px; /* space for giant logo */
+      position:relative;
     }
     .brand{
-      position:absolute; left:24px; top:50%; transform:translateY(-50%);
-      z-index:10; /* sits above the yellow border */
+      position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+      z-index:10;
       line-height:0;
     }
     .brand img{
-      height:100px; /* big logo */
+      height:200px; /* double the original size */
       display:block;
-      pointer-events:none;  /* logo is decorative */
-      /* optional: subtle shadow so it pops over the bar */
-      filter: drop-shadow(0 2px 0 rgba(0,0,0,.25));
+      pointer-events:none;
+      filter: drop-shadow(0 3px 0 rgba(0,0,0,.25));
     }
     .tagline{
-      color:#fff; font-weight:800; font-size:12px;
+      color:#fff; font-weight:800; font-size:14px;
       background:rgba(0,0,0,.25); padding:6px 10px; border-radius:6px;
+      position:absolute; bottom:8px; left:50%; transform:translateX(-50%);
+      white-space:nowrap;
     }
 
     /* Hero */
@@ -85,8 +86,8 @@
 
     @media (max-width:720px){
       h1{font-size:36px}
-      .brand img{height:70px}
-      .nav{padding-left:130px; min-height:72px}
+      .brand img{height:140px}
+      .nav{min-height:160px}
     }
   </style>
 </head>
@@ -94,7 +95,6 @@
   <header>
     <div class="nav">
       <div class="brand">
-        <!-- Use your transparent PNG here; keep exact filename/case -->
         <img src="assets/Logo.png" alt="BoxBuster Logo">
       </div>
       <div class="tagline">The world’s FREE rip & ship — funded 100% by creator rewards</div>
